@@ -1,0 +1,55 @@
+body {
+
+	background: #ebfafa;
+	
+
+}
+a{
+	text-decoration: none;
+	color: #496273;
+
+}
+#header li{
+	
+	list-style-type: none;
+}
+
+#home_user_info
+{
+	border: 2px solid #e1e8ed;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 
+	background: #FFF;
+	width: 25%;
+	position: relative;
+	top: 50px;
+	margin-left: 10px;
+	float: left;
+	border-radius: 5px;
+}
+
+#home_user_info img
+{
+	width: 60px;
+	height: 60px;
+	border : 4px solid #e1e8ed;
+	border-radius: 10px;
+	margin: 3px;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+#pro_name
+{
+	font-size: 20px;
+	position: relative;
+	top: -45px;
+}
+
+#user_email
+{
+	font-size: 15px;
+	position: relative;
+	left: 87px;
+	top: -40px;
+	color: rgb(102, 117, 127);
+}

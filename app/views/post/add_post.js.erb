@@ -1,0 +1,5 @@
+$('#post_text_area').val('');
+$(" <%= j render 'post'%> ").prependTo($('#posts'));
+$("#post_<%= @posts[0].id%>").hide();
+$("#post_<%= @posts[0].id%>").fadeIn(700);
+

@@ -1,0 +1,92 @@
+#searching
+{
+    color: #496273;
+	background: #FFF;
+	width: 28%;
+	position: relative;
+	top: 50px;
+	margin-left: 10px;
+	float: left;
+	border-radius: 5px;
+}
+.search
+{
+
+	border: 2px solid #e1e8ed;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 
+    font-weight: bold;
+    color: #496273;
+	background: #FFF;
+	width: 100%;
+	position: relative;
+	border-radius: 5px;
+}
+
+.search_form
+{
+	margin: 35px;
+	position: relative;
+
+}
+
+.search_but
+{
+	background: #1da1f2;
+	font-size: 15px;
+	font-weight: bold;
+	color: #fff;
+	width: 150px;
+	height: 30px;
+	border-radius: 5px;
+	border :1px solid #3b88c3;
+	position: relative;
+	left: 70px;
+	top: 20px;
+}
+
+.search_results
+{
+	padding: 5px;
+	background: #FFF;
+	border: 2px solid #e1e8ed;
+	border-radius: 5px;
+}
+.user_email_search
+{
+	font-size: 15px;
+	position: relative;
+	left: 70px;
+	top: -40px;
+	color: rgb(102, 117, 127);
+}
+
+.search_results h1
+{
+	position: relative;
+	left: 80px;
+	margin: 50px; 
+}
+
+#search_posts
+{
+	resize: none;
+	margin: 10px;
+	border-radius: 5px;
+	height: 50px;
+	width: 250px;
+}
+
+#no_friends
+{
+	padding: 5px;
+	background: #FFF;
+	border: 2px solid #e1e8ed;
+	border-radius: 5px;
+}
+
+#no_friends h1
+{
+	position: relative;
+	left: 50px;
+	margin: 50px; 
+}

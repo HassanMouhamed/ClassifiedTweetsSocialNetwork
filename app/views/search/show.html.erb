@@ -1,0 +1,8 @@
+<div >
+<%if @users.empty? %>
+	<div class="search_results">
+		<h1> No Match Found! </h1>
+	</div>
+<%end%>
+ <%= render 'show_users'%>
+</div>

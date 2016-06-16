@@ -1,0 +1,98 @@
+.post
+{
+	border: 2px solid #e1e8ed;
+	border-radius: 5px;
+	background: #FFF;
+}
+
+.pp img
+{
+	width: 60px;
+	height: 60px;
+	border-radius: 5px;
+	margin: 3px;
+}
+
+.pp
+{
+	
+}
+.info
+{
+	position: relative;
+	top: -45px;
+
+}
+
+.small_info
+{
+	color: #a3a375;
+	font-size: 14px;
+}
+
+.name
+{
+	color: rgb(41, 47, 51);
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 18px;
+	list-style-image: none;
+
+}
+.post_caption
+{
+	position: relative;
+	left: 15%;
+	top: -30px;
+	color: rgb(41, 47, 51);
+	width: 100%;
+}
+
+.post_image img
+{
+	width:83%;
+	position: relative;
+	left: 10%;
+	margin: 20px;
+	border-radius: 5px;
+	border : 1px solid #e1e8ed;
+
+}
+
+.liking img
+{
+	width: 23px;
+	height: 23px
+}
+
+
+.liking
+{
+	position: relative;
+	left: 15%;
+	top: -10px;
+}
+
+.comment
+{
+	margin-right: 10px;
+	background: #FFF;
+}
+
+.likes_count
+{
+	position: relative;
+	top: -5px;
+	left: 5px;
+}
+
+#comment_form textarea
+{
+	height: 70px;
+}
+
+#comment_but
+{
+	left: 80%	;
+}

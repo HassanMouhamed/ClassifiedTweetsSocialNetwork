@@ -1,0 +1,40 @@
+<div class="search"> 
+<form class="search_form" action="/search/users"  method="get">
+	<div class="field">
+		Email<br />
+		<%= text_field_tag :email ,"", :class => "auth_field"%>
+	</div>
+
+	<div class="field">
+		First name<br />
+		<%= text_field_tag :first_name , "",:class => "auth_field"%>
+	</div>
+
+	<div class="field">
+		Last name<br />
+		<%= text_field_tag :last_name , "",:class => "auth_field"%>
+	</div>
+
+	<div class="field">
+		Phone Number<br />
+		<%= text_field_tag :phone_number, "",:class => "auth_field" %>
+	</div>
+
+	<div class="field">
+		Hometown<br />
+		<%= text_field_tag :hometown , "",:class => "auth_field"%>
+	</div>
+
+	 <input class="search_but" type= "submit" value="Search">
+</form>
+
+</div>
+<div class="search">
+<form  class="search_form" action="/search/posts" method="get">
+	Posts Like <br />
+		<%= text_area_tag  :search_query , "",size: "5x5",:id => "search_posts"%>
+ <input class="search_but" type= "submit" value="Search">
+
+</form>
+
+</div>

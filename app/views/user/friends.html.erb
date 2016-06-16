@@ -1,0 +1,8 @@
+<div >
+<%if @users.empty? %>
+	<div id="no_friends">
+		<h1> You Have No Friends! </h1>
+	</div>
+<%end%>
+ <%= render 'search/show_users'%>
+</div>

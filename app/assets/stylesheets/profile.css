@@ -1,0 +1,40 @@
+#user_information
+{
+	background: #FFF;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 2px solid #e1e8ed;
+}
+
+#user_information img
+{
+	width: 90px;
+	height: 90px;
+	border-radius: 5px;
+	margin: 3px;
+}
+
+#profile_name
+{
+	font-size: 30px;
+	position: relative;
+	top: -60px;
+	left: 5px;
+}
+
+#user_information ul
+{
+	position: relative;
+	left: 80px;
+	top: -50px;
+}
+
+#user_information li
+{
+	margin-bottom: 10px;
+}
+
+.user_info
+{
+	color: #365899;
+}

@@ -1,0 +1,10 @@
+	<% user = current_user%>
+
+	<%= if user.profile_picture.url == "/profile_pictures/original/missing.png"
+			image_tag ("#{user.gender}.jpg")
+		else
+			image_tag (user.profile_picture.url)
+		end%>
+
+		<span id="pro_name" class="name" > <%= user.first_name+" "+user.last_name+"  " %> </span><br>
+		<span id="user_email"><%=user.email%></span>

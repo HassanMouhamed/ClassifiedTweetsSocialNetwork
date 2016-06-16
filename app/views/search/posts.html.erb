@@ -1,0 +1,9 @@
+<%if @posts.empty? %>
+	<div class="search_results">
+		<h1> No Match Found! </h1>
+	</div>
+
+<%else%>
+	<%= render 'post/post'%>
+<%end%>
+

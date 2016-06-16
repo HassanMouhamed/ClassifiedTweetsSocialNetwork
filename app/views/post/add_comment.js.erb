@@ -1,0 +1,4 @@
+$('#comment_text_area').val('');
+$(" <%= j render 'comment'%> ").prependTo($('#comments'));
+$("#comment_<%= @comments[0].id%>").hide();
+$("#comment_<%= @comments[0].id%>").fadeIn(700);

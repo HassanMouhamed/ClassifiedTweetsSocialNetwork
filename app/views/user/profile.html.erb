@@ -1,0 +1,27 @@
+<% user = @user%>
+
+<div id="user_information">
+	<%= if user.profile_picture.url == "/profile_pictures/original/missing.png"
+			image_tag ("#{user.gender}.jpg")
+		else
+			image_tag (user.profile_picture.url)
+		end%>
+
+		<span id="profile_name" class="name"> <%= user.first_name+" "+user.last_name+"  " %> </span>
+		<ul>
+			<li>Email : <span class="user_info"><%=user.email%></span></li>
+			<li>Phone Number : <span class="user_info"><%=user.phone_number%></span></li> 
+			<li>Gender : <span class="user_info"><%=user.gender%></span></li>
+			<li>Hometown : <span class="user_info"><%=user.hometown%></span></li>
+			<li>Marital Status : <span class="user_info"><%=user.marital_status%></span></li>
+			<%if @friends %><li>Birth Date : <span class="user_info"><%=user.birth_date%></span></li><%end%>
+			<%if @friends %><li>About me : <span class="user_info"><%=user.about_me%></span></li><%end%>
+		</ul>
+
+
+</div>
+
+<div id="posts"><%= render 'post/post'%></div>
+
+
+

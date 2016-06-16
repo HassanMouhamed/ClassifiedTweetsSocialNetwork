@@ -1,0 +1,41 @@
+<% @posts.each do |post|
+		  user = @users[post.user_id]%>
+		   
+			<div id= "post_<%=post.id%>" class="post">
+			    <a href="/users/<%=post.user_id%>" class="pp">
+			    <%= if user.profile_picture.url == "/profile_pictures/original/missing.png"
+			    		image_tag ("#{user.gender}.jpg")
+			    	else
+			    		image_tag (user.profile_picture.url)
+			    	end
+			    %></a>
+			    <span class="info">
+			    <span class="name"> <%= user.first_name+" "+user.last_name+"  " %> </span>
+			    <span class="small_info"><span> <%= post.image_updated_at	%></span>
+			    <span> <%= if post.is_public 
+			    	 			" - Public"
+			    	 		else
+			    	 			" - Private"
+			    	 		end
+			    	 	%>
+			    </span></span></span><br>
+			    <span class="post_caption"> <%= breaking_wrap_wrap(post.caption, col = 83) %></span>
+			    <div class="post_image">	
+			    <%= unless post.image.url.include? "/images/original/missing.png" 
+			    		image_tag (post.image.url)
+			    	end
+			    %>
+			    </div>
+			    <span class="liking">
+			    <a href="/posts/<%= post.id %>" class="comment" ><%=image_tag ("comment.png") %> </a>
+			    <a href="/posts/<%= post.id %>/like" class="like" id="like_post_<%=post.id%>" 		data-remote="true" <%=" visibility: hidden" if @likes[post.id] %>>
+			        <%=image_tag ("like.png") %>
+			    </a>
+			    <a href="/posts/<%= post.id %>/unlike" class="unlike"  id="unlike_post_<%=post.id%>" data-remote="true" <%= 
+			      " visibility: hidden" unless @likes[post.id] %>><%= image_tag ("unlike.png")%>
+			    </a>
+			  	<span class="likes_count" id="likes_<%=post.id%>" ><%= post.likes%></span>
+			    </span>
+
+			</div>
+		<%end%>

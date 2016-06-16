@@ -1,0 +1,17 @@
+<% unless @comments.empty?%> <br> <%end%>
+<% @comments.each do |comment|  
+		  user = @commenters[comment.user_id]%>
+			<div  id="comment_<%=comment.id%>" class="post">
+			    <a href="/users/<%=user.id%>" class="pp">
+			    <%= if user.profile_picture.url == "/profile_pictures/original/missing.png"
+			    		image_tag ("#{user.gender}.jpg")
+			    	else
+			    		image_tag (user.profile_picture.url)
+			    	end
+			    %></a>
+			    <span class="info">
+			    <span class="name"> <%= user.first_name+" "+user.last_name+"  " %> </span>
+			    </span></span><br>
+			    <span class="post_caption"> <%= breaking_wrap_wrap(comment.body, col = 83) %></span>
+			</div>
+<%end%>

@@ -1,0 +1,11 @@
+	<%= form_tag({:action => 'create' , :controller => 'post'}, { class: :post_form ,:multipart => true , 'data-remote' => 'true'}  ) do %>
+	    <select name="is_public" id="select_is_public">
+		    <option value="1">Public</option>
+		    <option value="0">Private</option>
+	    </select><br>
+		<textarea id="post_text_area" name="caption" rows="10" cols="100" placeholder="Write a post ..."></textarea>
+		<%= file_field_tag(:image, class: "auth_field" )%>
+		<input class="post_but" type="submit" value="Post">
+	<%end%>
+    <br>
+	<div id="posts" > <%= render 'post/post'%></div>	

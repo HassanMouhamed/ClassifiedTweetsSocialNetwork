@@ -1,0 +1,47 @@
+<div id= "auth_header">
+    <%=image_tag("logo.png",width: 50)%> 
+    <%=image_tag("slogan.png",width: 300)%> 
+ </div>
+
+
+<form  class="auth_form" action="/login" method="post">
+
+ <input class="auth_field" id="login_email" placeholder=" Email" type="text" name="email" > <br>
+ <input class="auth_field" id="login_pass" placeholder=" Password" type ="password" name="password">	
+ <input id="login_but" type= "submit" value="Log in">
+
+</form>
+ 
+
+<%= form_tag({:action => 'signup'}, { class: "auth_form" ,:multipart => true}  ) do %>
+	<%= text_field_tag('first_name',"" , class: "auth_field" ,placeholder: " First Name" )%>  
+	<%= text_field_tag('last_name',"" , class: "auth_field" ,placeholder: " Last Name" )%> 
+	<%= text_field_tag('email',"" , class: "auth_field" ,placeholder: " Email" )%>
+	<%= password_field_tag('password',"" , class: "auth_field" ,placeholder: " Password" )%> 
+	<%= password_field_tag(:password_confirmation,"" , class: "auth_field" ,placeholder: " Password Confirmation" )%>
+	<%= text_field_tag('phone_number',"" , class: "auth_field" ,placeholder: " Phone Number" )%>
+	<%= text_field_tag('birth_date',"" , class: "auth_field" ,placeholder: " Birth date : yyyy-mm-dd" )%>
+	<%= text_field_tag('hometown',"" , class: "auth_field" ,placeholder: " Hometown" )%>
+	<%= text_area_tag('about_me', "", size: "5x5" , placeholder: "About me") %>
+
+	<br><hr>
+	<%= radio_button_tag(:marital_status, "Single") %>
+	<%= label_tag(:marital_status, "Single") %>
+	<%= radio_button_tag(:marital_status, "Engaged") %>
+	<%= label_tag(:marital_status, "Engaged") %>
+	<%= radio_button_tag(:marital_status, "Married") %>
+	<%= label_tag(:marital_status, "Married") %> <hr>
+	<%= radio_button_tag(:gender, "Male") %>
+	<%= label_tag(:gender, "Male") %>
+	<%= radio_button_tag(:gender, "Female") %>
+	<%= label_tag(:gender, "Female") %> <br><hr>
+	<%= label_tag(:profile_picture, "Choose a profile picture :", class: "auth_field") %>
+	<%= file_field_tag(:profile_picture, class: "auth_field")%>
+	<hr><br>
+
+	<%= submit_tag("Sign Up" , id: "signup_but")%>
+
+<%end%>
+
+
+</form>
