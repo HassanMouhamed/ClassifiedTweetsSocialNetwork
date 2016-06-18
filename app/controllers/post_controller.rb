@@ -25,7 +25,7 @@ class PostController < ApplicationController
 		@users = Hash.new
 		@commenters = Hash.new
 		@likes = Hash.new
-		@posts = Post.find_by_sql("SELECT * FROM posts WHERE id = #{post_id}")
+		@posts = Post.retrieve(post_id)
 		@comments = Comment.find_by_sql("SELECT * FROM comments WHERE post_id = #{post_id}").reverse
 		@users[@posts[0].user_id] = User.retrieve(@posts[0].user_id)[0]
 		@likes[@posts[0].id] = !(Like.retrieve(current_user_id,@posts[0].id).empty?)

@@ -18,6 +18,20 @@
 			<%if @friends %><li>About me : <span class="user_info"><%=user.about_me%></span></li><%end%>
 		</ul>
 
+	<% unless @status == -1 %>
+		<div id = "friendship">
+		<% if @status == 1 %>
+			<a href="/friendship/<%=user.id%>/cancel"> Cancel Friend Request </a>	
+		<% elsif @status == 2%>
+			<a href="/friendship/show"> Pending Friend Request</a>
+		<%elsif @status ==3 %>
+			<a href="/friendship/<%=user.id%>/send"> Send Friend Request</a>
+		<% elsif @status == 0 %>
+			<a href="/friendship/<%=user.id%>/unfriend"> Unfriend</a>
+		<% end %>
+		</div>
+	<% end %>
+
 
 </div>
 

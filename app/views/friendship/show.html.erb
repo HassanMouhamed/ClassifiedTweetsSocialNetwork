@@ -1,0 +1,27 @@
+
+<% if @users.empty?%>
+		<div id="no_friends">
+		<h1> No Pending Requests </h1>
+	</div>
+
+<%else%>
+
+	<% @users.each do |user|%>
+			<div class="search_results" >
+				<div>
+					<a href="/users/<%=user.id%>" class="pp">
+				    <%= if user.profile_picture.url == "/profile_pictures/original/missing.png"
+				    		image_tag ("#{user.gender}.jpg")
+				    	else
+				    		image_tag (user.profile_picture.url)
+				    	end
+				    %></a>
+				<span id="pro_name" class="name" > <%= user.first_name+" "+user.last_name+"  " %> </span><br>
+				<span class="user_email_search"><%=user.email%></span>
+			</div>
+			<div id="acc" class="req_but"><a  href="/friendship/<%=user.id%>/accept">Accept</a></div>
+			<div id="rej" class="req_but"> <a  href="/friendship/<%=user.id%>/reject">Reject</a></div><br>
+			</div>
+	<% end %>
+
+<%end%>

@@ -3,7 +3,14 @@
     <%=image_tag("slogan.png",width: 300)%> 
  </div>
 
+<% if flash[:error] %>
 
+	<div class="auth_error">
+		<ul><li> <%= flash[:error] %></li></ul>
+	</div>
+<%
+flash[:error] = nil
+end%>
 <form  class="auth_form" action="/login" method="post">
 
  <input class="auth_field" id="login_email" placeholder=" Email" type="text" name="email" > <br>
@@ -12,7 +19,15 @@
 
 </form>
  
-
+<% unless @user.errors.full_messages.empty? %>
+	<div class="auth_error">
+		<ul>
+			<% @user.errors.full_messages.each do |msg|%>
+				<li> <%= msg%></li><br>
+			<%end%>
+		</ul>
+	</div>
+<%end%>
 <%= form_tag({:action => 'signup'}, { class: "auth_form" ,:multipart => true}  ) do %>
 	<%= text_field_tag('first_name',"" , class: "auth_field" ,placeholder: " First Name" )%>  
 	<%= text_field_tag('last_name',"" , class: "auth_field" ,placeholder: " Last Name" )%> 
@@ -43,5 +58,3 @@
 
 <%end%>
 
-
-</form>

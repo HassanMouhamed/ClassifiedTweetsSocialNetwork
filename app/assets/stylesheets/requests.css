@@ -1,0 +1,17 @@
+.req_but
+{
+	width: 110px;
+	height: 30px;
+	background: #ebebe0;
+	border : 1px solid #b8b894;
+	position: relative;
+	text-align: center;
+	float: left;
+	left: 58.5%;
+	top: -8px;
+}
+.req_but a
+{
+	position: relative;
+	top: 5px;
+}

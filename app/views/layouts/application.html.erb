@@ -5,7 +5,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= javascript_include_tag :defaults %>
 </head>
 <body>
  
@@ -15,13 +14,13 @@
    	<li id="home_but"><a href="/"><%=image_tag("home.png",width: 20)%>Home</a> </li>
     <li id="profile_but"><a href="/users/<%=current_user_id%>"><%=image_tag("profile.png",width: 20)%>Profile</a> </li>
    	<li id="notif_but"><a href=""> <%=image_tag("notif.png",width: 20)%>Notifications</a> </li>
-   	<li id="requests_but"><a href=""><%=image_tag("requests.png",width: 20)%> Requests</a> </li>
+   	<li id="requests_but"><a href="/friendship/show"><%=image_tag("requests.png",width: 20)%> Requests <span id="req_count"><%=@requests_cout%></span> </a> </li>
     <li id="friends_but"><a href="/friends"><%=image_tag("friends.png",width: 20)%> Friends</a> </li>
    </ul>
 
   <a href="/" ><%=image_tag("logo.png",width: 35 , id: 'logo')%></a> 
    <ul id="edit_logout">
-    <li id="edit_but"><a href=""><%=image_tag("edit.png",width: 20)%>Edit</a> </li>
+    <li id="edit_but"><a href="/user/edit"><%=image_tag("edit.png",width: 20)%>Edit</a> </li>
     <li id="logout_but"><a href="/logout"><%=image_tag("logout.png",width: 20)%>Log Out</a> </li>
    </ul>
 

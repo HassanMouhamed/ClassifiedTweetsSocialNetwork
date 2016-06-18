@@ -38,3 +38,22 @@
 {
 	color: #365899;
 }
+
+#friendship
+{
+	width: 200px;
+	height: 30px;
+	background: #ebebe0;
+	border : 1px solid #b8b894;
+	position: relative;
+	left: 62%;
+	top: -5px;	
+	text-align: center;
+
+}
+
+#friendship a
+{
+	 position: relative;
+	 top: 6px;
+}

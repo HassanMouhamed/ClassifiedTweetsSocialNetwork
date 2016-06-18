@@ -38,7 +38,7 @@
 
 #requests_but
 {
-	width: 100px;
+	width: 130px;
 }
 
 #edit_but
@@ -59,7 +59,7 @@
 #edit_logout
 {
 	position: relative;
-	left: 40%;
+	left: 37%;
 }
 
 #logo
@@ -68,4 +68,9 @@
 	position: relative;
 	left: 20%;
 	top: -7px;
+}
+
+#req_count
+{
+	color: red;
 }
