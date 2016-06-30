@@ -1,0 +1,180 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS users (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `password_digest` VARCHAR(100) ,
+  `email` VARCHAR(45) NOT NULL,
+  `phone_number` VARCHAR(15) NULL,
+  `gender` VARCHAR(6) NOT NULL,
+  `birth_date` DATE NOT NULL,
+  `profile_picture` VARCHAR(100) NULL,
+  `hometown` VARCHAR(100) NULL,
+  `marital_status` VARCHAR(10) NULL,
+  `about_me` TEXT(200) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`posts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS posts (
+  `id` INT AUTO_INCREMENT,
+  `likes` INT NULL DEFAULT 0,
+  `caption` LONGTEXT NOT NULL,
+  `image` VARCHAR(100) NULL,
+  `is_public` TINYINT(1) NOT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `user_id_idx` (`user_id` ASC),
+  CONSTRAINT `fk_poster`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`requests`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS requests (
+  `user_id` INT NOT NULL,
+  `sender_id` INT NOT NULL,
+  `seen` TINYINT(1) NULL DEFAULT 0,
+  PRIMARY KEY (`user_id`, `sender_id`),
+  INDEX `fk_sender_idx` (`sender_id` ASC),
+  CONSTRAINT `fk_receiver`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_sender`
+    FOREIGN KEY (`sender_id`)
+    REFERENCES `users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`friendships`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `friendships` (
+  `first_user_id` INT NOT NULL,
+  `second_user_id` INT NOT NULL,
+  PRIMARY KEY (`first_user_id`, `second_user_id`),
+  INDEX `fk_second_user_idx` (`second_user_id` ASC),
+  CONSTRAINT `fk_first_user`
+    FOREIGN KEY (`first_user_id`)
+    REFERENCES `users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_second_user`
+    FOREIGN KEY (`second_user_id`)
+    REFERENCES `users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`notifications`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `notifications` (
+  `maker_id` INT NOT NULL,
+  `action` INT NOT NULL,
+  `post_id` INT NOT NULL,
+  `seen` TINYINT(1) NULL DEFAULT 0,
+  `user_id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  INDEX `fk_user_idx` (`user_id` ASC),
+  INDEX `fk_post_idx` (`post_id` ASC),
+  INDEX `fk_maker_idx` (`maker_id` ASC),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_user_notif`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_post_notif`
+    FOREIGN KEY (`post_id`)
+    REFERENCES `posts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_maker`
+    FOREIGN KEY (`maker_id`)
+    REFERENCES `users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`likes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `likes` (
+  `post_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`post_id`, `user_id`),
+  INDEX `fk_user_idx` (`user_id` ASC),
+  CONSTRAINT `fk_post2`
+    FOREIGN KEY (`post_id`)
+    REFERENCES `posts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_user2`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`comments`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `post_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  `body` LONGTEXT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_post_idx` (`post_id` ASC),
+  INDEX `fk_writer_idx` (`user_id` ASC),
+  CONSTRAINT `fk_post_comment`
+    FOREIGN KEY (`post_id`)
+    REFERENCES `posts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_writer_comment`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

@@ -107,12 +107,11 @@ class UserController < ApplicationController
 
 		@friends = params[:user_id].to_i == current_user_id || (is_friend params[:user_id] , current_user_id)
 
-		if @friends  
-			@posts = Post.find_by_sql("SELECT * FROM posts WHERE user_id = #{params[:user_id]} ORDER by image_updated_at DESC")
-		else
-			@posts = Post.find_by_sql("SELECT * FROM posts WHERE user_id = #{params[:user_id]} AND is_public = true ORDER by image_updated_at DESC")			
+		unless @friends  
+			condition = 'AND is_public = true'		
 		end
 
+		@posts = Post.find_by_sql("SELECT * FROM posts WHERE user_id = #{params[:user_id]} #{condition} ORDER by image_updated_at DESC")
 		@users[params[:user_id].to_i] = User.retrieve(params[:user_id])[0] 
 		@user =  @users[params[:user_id].to_i]
 		@status = status current_user_id , params[:user_id]

@@ -1,8 +1,9 @@
 
 <div id="posts" > <%= render 'post'%></div>	
-		<form action="/posts/<%=@posts[0].id%>/comment"  method="POST" class="post_form" id="comment_form" data-remote = "true">
+<div id="comments"> <%= render 'comment' %></div>
+
+<form action="/posts/<%=@posts[0].id%>/comment"  method="POST" class="post_form" id="														comment_form" data-remote = "true">
 			<textarea id="comment_text_area" name="body" rows="10" cols="100" placeholder="Write a comment ..."></textarea>
 			<input id="comment_but" class="post_but" type="submit" value="Comment">
-		</form>
-<div id="comments"> <%= render 'comment' %></div>
+</form>
 

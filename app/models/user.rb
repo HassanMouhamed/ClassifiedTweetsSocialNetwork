@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
 	VALID_BIRTH_DATE_REGEX = ~ /\A(?:0?[1-9]|1[0-2])\/(?:0?[1-9]|[1-2]\d|3[01])\/\d{4}\z/i
 	validates :birth_date, presence: true, length: { maximum: 50 }, 
 	                    format: { with: VALID_BIRTH_DATE_REGEX }
-	validates :phone_number,  presence: true, length: { maximum: 10 , minimum: 8 }
+	validates :phone_number,  presence: true, length: { maximum: 12 , minimum: 8 }
 	validates :password, presence: true, length: { minimum: 6 }
 	validates :hometown , presence: true , length: { maximum: 20 }
-	validates :about_me , presence: true , length: { maximum: 30 }
+	validates :about_me , presence: true , length: { maximum: 50 }
 	validates :marital_status , presence: true
 	validates :gender , presence: true
 
