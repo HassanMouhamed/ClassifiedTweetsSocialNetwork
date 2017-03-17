@@ -1,6 +1,7 @@
 class PostController < ApplicationController
 
 	include UserHelper
+  include PostHelper
 
 	before_action  :check_privacy, :except =>[:create]
 
@@ -92,7 +93,8 @@ class PostController < ApplicationController
 	def get_post_params
 	 	par = params.permit(:caption,:image , :is_public)
 	 	par[:user_id] = current_user_id
-	 	par[:image_updated_at] = DateTime.now  
+	 	par[:image_updated_at] = DateTime.now
+		par[:post_category] = get_post_category par[:caption]
 	 	return par 
 	end
 

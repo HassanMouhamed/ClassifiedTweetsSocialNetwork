@@ -1,6 +1,6 @@
 <% @posts.each do |post|
 		  user = @users[post.user_id]%>
-		   
+		 
 			<div id= "post_<%=post.id%>" class="post">
 			    <a href="/users/<%=post.user_id%>" class="pp">
 			    <%= if user.profile_picture.url == "/profile_pictures/original/missing.png"

@@ -26,5 +26,4 @@ class User < ActiveRecord::Base
 
 	scope :retrieve ,lambda {|id| find_by_sql("SELECT * FROM users WHERE id = #{id}")}
 
-
 end

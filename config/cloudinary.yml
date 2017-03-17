@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: duenmcwft
+  api_key: '233642845951856'
+  api_secret: UCzPURbH_N7ERxPEX9vLsCmGwiA
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: duenmcwft
+  api_key: '233642845951856'
+  api_secret: UCzPURbH_N7ERxPEX9vLsCmGwiA
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: duenmcwft
+  api_key: '233642845951856'
+  api_secret: UCzPURbH_N7ERxPEX9vLsCmGwiA
+  enhance_image_tag: true
+  static_image_support: false

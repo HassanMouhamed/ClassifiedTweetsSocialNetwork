@@ -25,9 +25,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'remotipart', '~> 1.0'
 
-
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
+
+# load ESA jars
+gem 'rjb', '1.4.7'
+#use liblinear model
+gem 'liblinear-ruby'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

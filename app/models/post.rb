@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
 
 
     def self.retrieve post_id
-    	find_by_sql("SELECT * FROM posts WHERE id = #{post_id}")
+			find_by_sql("SELECT * FROM posts WHERE id = #{post_id}")
     end
 
     def self.likes post_id

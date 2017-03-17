@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'user#home'
+  get '/:category_id' => 'user#home'
   post '/login' => 'user#login'
   post '/signup' => 'user#signup'
   get '/logout' => 'user#logout'
